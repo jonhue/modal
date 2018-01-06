@@ -18,7 +18,9 @@ modal-rails uses [iziModal.js](https://github.com/dolce/iziModal) to provide the
 * [Usage](#usage)
     * [Controllers](#controllers)
     * [Views](#views)
-    * [Handling modals](#handling-modals)
+    * [Trigger a modal](#trigger-a-modal)
+    * [Modal functions](#modal-functions)
+    * [Options](#options)
     * [Styles](#styles)
     * [Events](#events)
 * [To Do](#to-do)
@@ -150,15 +152,13 @@ Content of my modal
     %p Contains complex structures as well.
 ```
 
-### Handling modals
-
-#### Trigger
+### Trigger a modal
 
 There are numerous ways to trigger/open a modal.
 
 One options is to open he modal by calling a JavaScript function - more on that [here](#functions).
 
-##### Links
+#### Links
 
 The most common scenario is using a link trigger the opening of a modal:
 
@@ -168,7 +168,7 @@ The most common scenario is using a link trigger the opening of a modal:
 
 You can use [data attributes](#options) to pass options customizing the modal.
 
-##### Forms
+#### Forms
 
 When you have form, which has a `GET` action, and you want to open a modal after submitting the form - this is as simple as it gets:
 
@@ -180,7 +180,7 @@ When you have form, which has a `GET` action, and you want to open a modal after
 
 You can use [data attributes](#options) to pass options customizing the modal.
 
-##### Elements
+#### Elements
 
 You can also trigger a modal from any other HTML element in your view:
 
@@ -190,11 +190,11 @@ You can also trigger a modal from any other HTML element in your view:
 
 You can use [data attributes](#options) to pass options customizing the modal.
 
-#### Functions
+### Modal functions
 
 modal-rails' JavaScript component provides a set of functions to handle your modals:
 
-##### Open modals
+#### Open modals
 
 ```js
 $.fn.modalRails.open({ url: 'http://localhost:3000/settings/modal' });
@@ -210,21 +210,21 @@ $.fn.modalRails.open({
 });
 ```
 
-##### Close modals
+#### Close modals
 
 ```js
 $.fn.modalRails.close();
 ```
 
-#### Options
+### Options
 
 There are to sets of options you can pass to modal-rails. Those who get passed on initialization and those who get passed on any subsequent calls of a function.
 
-##### Initialization
+#### Initialization
 
 `ìziModal`: Options hash utilized to initialize [iziModal](https://github.com/dolce/iziModal).
 
-##### Subsequent calls
+#### Subsequent calls
 
 `url`: URL to fetch content of the modal from. Takes a string.
 
