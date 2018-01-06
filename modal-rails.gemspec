@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
     gem.description           = 'A sophisticated modal solution for Rails apps.'
     gem.authors               = ['Jonas Hübotter']
     gem.email                 = ['me@jonhue.me']
-    gem.homepage              = 'https://github.com/jonhue/modal-rails'
+    gem.homepage              = 'https://github.com/jonhue/modal'
     gem.license               = 'MIT'
 
     gem.files                 = Dir['README.md', 'CHANGELOG.md', 'LICENSE', 'lib/**/*', 'app/**/*', 'vendor/**/*']
