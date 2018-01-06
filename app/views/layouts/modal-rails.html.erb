@@ -1,0 +1,19 @@
+<% if area(:modal_rails_title).length > 0 %>
+<div class="modal-rails--header">
+    <div class="wrapper">
+        <h4><%= area :modal_rails_title %></h4>
+        <% if area(:modal_rails_subtitle).length > 0 %>
+        <p>
+            <%= area :modal_rails_subtitle %>
+        </p>
+        <% end %>
+    </div>
+    <div class="wrapper">
+        <%= area :modal_actions %>
+    </div>
+</div>
+<% end %>
+
+<div class="modal--content <%= modal_class_hierarchy( [params[:controller].split('/').each { |n| n }, action_name] %>">
+    <%= yield %>
+</div>
