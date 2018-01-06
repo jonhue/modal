@@ -13,6 +13,10 @@ module ModalRails
             area :modal_rails_title, title
         end
 
+        def modal_subtitle subtitle
+            area :modal_rails_subtitle, subtitle
+        end
+
         def modal_actions &block
             area :modal_rails_actions, capture(&block)
         end
