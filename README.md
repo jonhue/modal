@@ -18,7 +18,7 @@ modal-rails uses [iziModal.js](https://github.com/dolce/iziModal) to provide the
 * [Usage](#usage)
     * [Controllers](#controllers)
     * [Views](#views)
-    * [Functions](#functions)
+    * [Handling modals](#handling-modals)
     * [Styles](#styles)
     * [Events](#events)
 * [To Do](#to-do)
