@@ -1,7 +1,7 @@
 module Modalist
     module ModalHelper
 
-        def modalist
+        def render_modalist
             render partial: 'modalist/modal'
         end
 

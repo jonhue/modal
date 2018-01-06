@@ -76,7 +76,7 @@ Specify where modals should be located in your view:
     %head
         -# ...
     %body
-        = modalist
+        = render_modalist
         = yield
 ```
 
