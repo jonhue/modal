@@ -82,9 +82,9 @@ Lastly, specify where modals should be loaded in your view (preferably in `app/v
 ```haml
 !!!
 %html
-    %head>
+    %head
         -# ...
-    %body>
+    %body
         = render_modal
         = yield
 ```
