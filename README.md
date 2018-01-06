@@ -19,6 +19,7 @@ Modalist does not reinvent the wheel and uses todays best modal-engine [iziModal
     * [Controllers](#controllers)
     * [Views](#views)
     * [Styles](#styles)
+    * [Modalist.js](#modalist.js)
 * [To Do](#to-do)
 * [Contributing](#contributing)
     * [Contributors](#contributors)
