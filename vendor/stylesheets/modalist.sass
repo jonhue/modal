@@ -1,4 +1,4 @@
-#modal.iziModal
+#modalist.iziModal
     box-shadow: 0 .0625em .3125em 0 rgba(color(text, base, true), .05)
     border: .0625rem solid #DCE2E7
     border-radius: .3125rem !important
@@ -15,9 +15,9 @@
         border: none
         height: 100vh !important
         &.fadeInRight
-            animation: modal-fadeInRight .35s ease-out !important
+            animation: modalist-fadeInRight .35s ease-out !important
         &.fadeOutRight
-            animation: modal-fadeOutRight .35s ease-out !important
+            animation: modalist-fadeOutRight .35s ease-out !important
     ::-webkit-scrollbar
         width: .3125rem
     ::-webkit-scrollbar-track
@@ -31,7 +31,7 @@
         border-radius: .3125rem
         border-bottom: .0625rem solid #DCE2E7
         & > .iziModal-content
-            & > .modal--header
+            & > .modalist--header
                 background: #FCFCFC
                 border-radius: .3125rem .3125rem 0 0
                 display: flex
@@ -58,28 +58,28 @@
                     line-height: 1.75
                     @media (min-width: 800px)
                         font-size: 1rem
-                .modal--close
+                .modalist--close
                     display: flex
                     align-items: center
                     justify-content: center
                     opacity: .85
                     &:hover, &:focus
                         opacity: 1
-            & > .modal--content
+            & > .modalist--content
                 background: white
                 border-radius: .3125rem
                 padding: 1.25rem
 .iziModal-overlay
     background: transparentize(#E7ECF0, 0.13) !important
-#modal.iziModal, .iziModal-overlay
+#modalist.iziModal, .iziModal-overlay
     animation-duration: .5s !important
 
-@keyframes modal-fadeInRight
+@keyframes modalist-fadeInRight
     from
         transform: translateX(100%)
     to
         transform: none
-@keyframes modal-fadeOutRight
+@keyframes modalist-fadeOutRight
     from
         transform: none
     to

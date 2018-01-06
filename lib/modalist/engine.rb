@@ -1,6 +1,6 @@
 require 'rails/railtie'
 
-module ModalRails
+module Modalist
     class Engine < ::Rails::Engine
     end
 end

@@ -1,4 +1,4 @@
-module ModalRails
+module Modalist
     class Ajax
 
         def matches? request

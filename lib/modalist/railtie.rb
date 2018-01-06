@@ -1,11 +1,11 @@
 require 'rails/railtie'
 
-module ModalRails
+module Modalist
     class Railtie < Rails::Railtie
 
-        initializer 'modal-rails.action_controller' do
+        initializer 'modalist.action_controller' do
             ActiveSupport.on_load :action_controller do
-                include ModalRails::RenderHelper
+                include Modalist::RenderHelper
             end
         end
 

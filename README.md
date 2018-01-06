@@ -1,14 +1,14 @@
-# Modal
+# Modalist
 
-[![Gem Version](https://badge.fury.io/rb/modal-rails.svg)](https://badge.fury.io/rb/modal-rails) <img src="https://travis-ci.org/jonhue/modal.svg?branch=master" />
+[![Gem Version](https://badge.fury.io/rb/modalist.svg)](https://badge.fury.io/rb/modalist) <img src="https://travis-ci.org/jonhue/modalist.svg?branch=master" />
 
-Modal is a sophisticated modal-solution for Rails. Here is how it works:
+Modalist is a powerful ajaxified modal solution for Rails. Here is how it works:
 
-1) You open a modal from your frontend code
-2) Modal fetches the modal contents from your specific modal controller actions with AJAX
-3) The modal becomes visible for the user
+1) You trigger a modal opening from your frontend code
+2) Modalist fetches the modal contents from your specific modal-controller-action with AJAX
+3) The modal opens
 
-Modal uses [iziModal.js](https://github.com/dolce/iziModal) to backup its modal engine.
+Modalist does not reinvent the wheel and uses the best modal-engine [iziModal.js](https://github.com/dolce/iziModal) to backup its code.
 
 ---
 
@@ -19,7 +19,7 @@ Modal uses [iziModal.js](https://github.com/dolce/iziModal) to backup its modal 
     * [Controllers](#controllers)
     * [Views](#views)
     * [Trigger a modal](#trigger-a-modal)
-    * [Modal functions](#modal-functions)
+    * [Modalist functions](#modalist-functions)
     * [Options](#options)
     * [Styles](#styles)
     * [Events](#events)
@@ -32,10 +32,10 @@ Modal uses [iziModal.js](https://github.com/dolce/iziModal) to backup its modal 
 
 ## Installation
 
-Modal works with Rails 5 onwards. You can add it to your `Gemfile` with:
+Modalist works with Rails 5 onwards. You can add it to your `Gemfile` with:
 
 ```ruby
-gem 'modal-rails'
+gem 'modalist'
 ```
 
 And then execute:
@@ -44,12 +44,12 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install modal-rails
+    $ gem install modalist
 
 If you always want to be up to date fetch the latest from GitHub in your `Gemfile`:
 
 ```ruby
-gem 'modal-rails', github: 'jonhue/modal'
+gem 'modalist', github: 'jonhue/modalist'
 ```
 
 ## Usage
@@ -59,19 +59,19 @@ First let's add the necessary assets to your pipeline:
 ```js
 //= require jquery
 //= require iziModal
-//= require modal
+//= require modalist
 ```
 
 ```css
 /*
  *= require iziModal
- *= require modal
+ *= require modalist
 */
 ```
 
-**Note:** If you are using a package manager like Yarn, import the latest [iziModal](https://github.com/dolce/iziModal) code instead.
+**Note:** If you are using a package manager like Yarn, import the latest [iziModal](https://github.com/dolce/iziModal) and [modalist](https://github.com/jonhue/modalist.js) code instead.
 
-Specify where modals should be located in your view (preferably in `app/views/layouts/application.html.haml`):
+Specify where modals should be located in your view:
 
 ```haml
 !!!
@@ -79,13 +79,13 @@ Specify where modals should be located in your view (preferably in `app/views/la
     %head
         -# ...
     %body
-        = render_modal
+        = modalist
         = yield
 ```
 
 ### Controllers
 
-Modal simulates Rails' MVC structure. To add a new modal to your app you have to create a new controller action, route and view:
+Modallist simulates Rails' MVC structure. To add a new modal to your app you have to create a new controller action, route and view:
 
 ```ruby
 class SettingsController < ApplicationController
@@ -94,9 +94,9 @@ class SettingsController < ApplicationController
         # a regular controller action
     end
 
-    def modal
-        render_modal
-        # a modal controller action
+    def modalist
+        modalist
+        # a modalist controller action
     end
 
 end
@@ -107,55 +107,53 @@ Rails.application.routes.draw do
 
     get 'settings', to: 'settings#index'
     scope :settings, as: :settings do
-        get 'modal', to: 'settings#modal'
+        get 'modalist', to: 'settings#modalist'
     end
 
 end
 ```
 
-In most cases you only want to allow AJAX requests to be able to reach your Modal controller actions:
+In most cases you only want to allow AJAX requests to be able to reach your modal-controller-actions:
 
 ```ruby
-get 'modal', to: 'settings#modal', constraints: ModalRails::Ajax.new
+get 'modalist', to: 'settings#modalist', constraints: Modalist::Ajax.new
 ```
 
 ### Views
 
-In your Modal views are a couple of helper methods available:
+In your Modalist views are a couple of helper methods available:
 
-**`modal_title(title)`:** This will specify a title for your modal. If you omit this in your view, your modal will not have a header. Takes a string.
+**`modalist_title(title)`:** This will specify a title for your modal. If you omit this in your view, your modal will not have a header. Takes a string.
 
-**`modal_subtitle(subtitle)`:** Add a subtitle to your modal header. Takes a string.
+**`modalist_subtitle(subtitle)`:** Add a subtitle to your modal header. Takes a string.
 
-**`modal_actions(&block)`:** Specify actions (preferably icons wrapped in links) which will be displayed on the right side of your modal header. Takes a block.
+**`modalist_actions(&block)`:** Specify actions (preferably icons wrapped in links) which will be displayed on the right side of your modal header. Takes a block.
 
-**`modal_close`:** Renders a default modal close action. Can be passed to `modal_actions`.
+**`modalist_close`:** Renders a default modal close action. Can be passed to `modalist_actions`.
 
 #### Example
 
 ```haml
-- modal_title 'Modal'
-- modal_subtitle 'Subtitle'
-- modal_actions do
-    = modal_close
+- modalist_title 'Modal'
+- modalist_subtitle 'Subtitle'
+- modalist_actions do
+    = modalist_close
 
-Content of my modal
-%div
-    %p Contains complex structures as well.
+Content ...
 ```
 
 ### Trigger a modal
 
-There are numerous ways to trigger/open a modal.
+There are numerous ways to trigger/open a modal with Modalist.
 
-One options is to open he modal by calling a JavaScript function - more on that [here](#functions).
+One options is to open the modal by calling a JavaScript function - more on that [here](#functions).
 
 #### Links
 
-The most common scenario is using a link trigger the opening of a modal:
+The most common scenario is using a link to trigger the opening of a modal:
 
 ```haml
-= link_to 'Open modal', settings_modal_url, class: 'modal--trigger'
+= link_to 'Open modal', settings_modalist_url, class: 'modalist--trigger'
 ```
 
 You can use [data attributes](#options) to pass options customizing the modal.
@@ -165,9 +163,9 @@ You can use [data attributes](#options) to pass options customizing the modal.
 When you want to open a modal after submitting a form - this is as simple as it gets:
 
 ```haml
-= simple_form_for @setting, setting_url(id: @setting.id), method: :get do |f|
+= simple_form_for @setting, settings_modalist_url(id: @setting.id), method: :get do |f|
     -# ...
-    = f.input :submit, input_html: { class: 'modal--trigger', data: { modal_form: true } }
+    = f.input :submit, input_html: { class: 'modalist--trigger', data: { modalist_form: true } }
 ```
 
 You can use [data attributes](#options) to pass options customizing the modal.
@@ -177,25 +175,25 @@ You can use [data attributes](#options) to pass options customizing the modal.
 You can also trigger a modal from any other HTML element in your view:
 
 ```haml
-.modal--trigger{ data: { modal_url: settings_modal_url } }
+.modalist--trigger{ data: { modalist_url: settings_modalist_url } }
 ```
 
 You can use [data attributes](#options) to pass options customizing the modal.
 
-### Modal functions
+### Modalist functions
 
-Modal's JavaScript component provides a set of functions to handle your modals:
+Modalist's JavaScript component provides a set of functions to handle your modals:
 
 #### Open modals
 
 ```js
-Modal.open({ url: 'http://localhost:3000/settings/modal' });
+Modalist.open({ url: 'http://localhost:3000/settings/modal' });
 ```
 
 You can pass [options](#options) to customize the modal:
 
 ```js
-Modal.open({
+Modalist.open({
     url: 'http://localhost:3000/settings/modal',
     form: false,
     fullScreen: false
@@ -205,12 +203,12 @@ Modal.open({
 #### Close modals
 
 ```js
-Modal.close();
+Modalist.close();
 ```
 
 ### Options
 
-There are two sets of options you can pass to Modal. Those who get passed on initialization and those who get passed on any subsequent calls of a function.
+There are two sets of options you can pass to Modalist. Those who get passed on initialization and those who get passed on any subsequent calls of a function.
 
 #### Initialization
 
@@ -228,48 +226,48 @@ There are two sets of options you can pass to Modal. Those who get passed on ini
 
 To customize the styles of your modals, require the vendored default styles and then override them with your custom CSS.
 
-It is often useful to be able to provide view-specific styles. Modal therefore adds classes for controller and action to the `modal--content` element which wraps your modals content. Here is how you can utilize it:
+It is often useful to be able to provide view-specific styles. Modalist therefore adds classes for controller and action to the `.modalist--content` element which wraps your modals content. Here is how you can utilize it:
 
 ```css
-/* settings#modal */
-.modal--content.settings.modal {
+/* settings#modalist */
+.modalist--content.settings.modalist {
     /* ... */
 }
-/* nested/settings#modal */
-.modal--content.nested.settings.modal {
+/* nested/settings#modalist */
+.modalist--content.nested.settings.modalist {
     /* ... */
 }
 ```
 
 ### Events
 
-Modal emits events that allow you to track the navigation lifecycle and respond to content loading. Modal fires events on the `$(document)` object.
+Modalist emits events that allow you to track the navigation lifecycle and respond to content loading. Modalist fires events on the `$(document)` object.
 
-* `modal:click` fires when you click a Modal enabled link to trigger a modal opening. The clicked element is the event target. Access the requested location with `event.data.url`.
+* `modalist:click` fires when you click a Modal enabled link to trigger a modal opening. The clicked element is the event target. Access the requested location with `event.data.url`.
 
-* `modal:request-start` fires before Modal issues a network request to fetch the modal content.
+* `modalist:request-start` fires before Modal issues a network request to fetch the modal content.
 
-* `modal:request-end` fires after the network request completes.
+* `modalist:request-end` fires after the network request completes.
 
-* `modal:before-render` fires before rendering the content.
+* `modalist:before-render` fires before rendering the content.
 
-* `modal:render` fires after Modal renders the content in the modal.
+* `modalist:render` fires after Modal renders the content in the modal.
 
-* `modal:load` fires after Modal completed preparing and opened the modal.
+* `modalist:load` fires after Modal completed preparing and opened the modal.
 
 ---
 
 ## To Do
 
-[Here](https://github.com/jonhue/modal/projects/1) is the full list of current projects.
+[Here](https://github.com/jonhue/modalist/projects/1) is the full list of current projects.
 
-To propose your ideas, initiate the discussion by adding a [new issue](https://github.com/jonhue/modal/issues/new).
+To propose your ideas, initiate the discussion by adding a [new issue](https://github.com/jonhue/modalist/issues/new).
 
 ---
 
 ## Contributing
 
-We hope that you will consider contributing to Modal. Please read this short overview for some information about how to get started:
+We hope that you will consider contributing to Modalist. Please read this short overview for some information about how to get started:
 
 [Learn more about contributing to this repository](CONTRIBUTING.md), [Code of Conduct](CODE_OF_CONDUCT.md)
 
@@ -277,7 +275,7 @@ We hope that you will consider contributing to Modal. Please read this short ove
 
 Give the people some :heart: who are working on this project. See them all at:
 
-https://github.com/jonhue/modal/graphs/contributors
+https://github.com/jonhue/modalist/graphs/contributors
 
 ## License
 

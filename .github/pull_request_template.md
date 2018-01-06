@@ -15,7 +15,6 @@ If you are updating any of the CHANGELOG files or are asked to update the
 CHANGELOG files by reviewers, please add the CHANGELOG entry at the top of the file.
 
 Finally, if your pull request affects documentation or any non-code
-changes, guidelines for those changes are [available
-here](https://github.com/jonhue/modal/blob/master/CONTRIBUTING.md)
+changes, guidelines for those changes are [available here](CONTRIBUTING.md)
 
-Thanks for contributing to Modal!
+Thanks for contributing to Modalist!

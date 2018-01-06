@@ -1,15 +1,15 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path(File.join('..', 'lib', 'modal-rails', 'version'), __FILE__)
+require File.expand_path(File.join('..', 'lib', 'modalist', 'version'), __FILE__)
 
 Gem::Specification.new do |gem|
-    gem.name                  = 'modal-rails'
-    gem.version               = ModalRails::VERSION
+    gem.name                  = 'modalist'
+    gem.version               = Modalist::VERSION
     gem.platform              = Gem::Platform::RUBY
-    gem.summary               = 'A sophisticated modal solution for Rails apps'
-    gem.description           = 'A sophisticated modal solution for Rails apps.'
+    gem.summary               = 'A powerful ajaxified modal solution for Rails apps'
+    gem.description           = 'A powerful ajaxified modal solution for Rails apps.'
     gem.authors               = ['Jonas Hübotter']
     gem.email                 = ['me@jonhue.me']
-    gem.homepage              = 'https://github.com/jonhue/modal'
+    gem.homepage              = 'https://github.com/jonhue/modalist'
     gem.license               = 'MIT'
 
     gem.files                 = Dir['README.md', 'CHANGELOG.md', 'LICENSE', 'lib/**/*', 'app/**/*', 'vendor/**/*']

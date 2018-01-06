@@ -1,4 +1,4 @@
-module ModalRails
+module Modalist
 
     VERSION = '1.0.0'
 
