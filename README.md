@@ -8,7 +8,7 @@ Modalist is a powerful ajaxified modal solution for Rails. Here is how it works:
 2) Modalist fetches the modal contents from your specific modal-controller-action with AJAX
 3) The modal opens
 
-Modalist does not reinvent the wheel and uses the best modal-engine [iziModal.js](https://github.com/dolce/iziModal) to backup its code.
+Modalist does not reinvent the wheel and uses todays best modal-engine [iziModal.js](https://github.com/dolce/iziModal) to backup its code.
 
 ---
 
