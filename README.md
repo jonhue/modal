@@ -77,7 +77,7 @@ $(document).on( 'turbolinks:load', function() {
 });
 ```
 
-Lastly, specify where modals should be loaded in your view (preferably in `app/views/layouts/application.html.erb`):
+Lastly, specify where modals should be loaded in your view (preferably in `app/views/layouts/application.html.haml`):
 
 ```haml
 !!!
