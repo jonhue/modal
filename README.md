@@ -23,6 +23,7 @@ Modalist does not reinvent the wheel and uses todays best modal-engine [iziModal
 * [To Do](#to-do)
 * [Contributing](#contributing)
     * [Contributors](#contributors)
+    * [Semantic versioning](#semantic-versioning)
 * [License](#license)
 
 ---
@@ -181,6 +182,10 @@ We hope that you will consider contributing to Modalist. Please read this short 
 Give the people some :heart: who are working on this project. See them all at:
 
 https://github.com/jonhue/modalist/graphs/contributors
+
+### Semantic Versioning
+
+Modalist follows Semantic Versioning 2.0 as defined at http://semver.org.
 
 ## License
 
