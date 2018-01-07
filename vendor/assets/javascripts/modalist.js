@@ -1,6 +1,6 @@
 /**!
  * @fileOverview modalist.js - A powerful AJAX modal plugin extending iziModal
- * @version 1.0.0
+ * @version 1.0.3
  * @license
  * MIT License
  *
@@ -24,8 +24,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-(function($) {
-    var Modalist = new function(options) {
+var Modalist;
+$(document).on( 'ready turbolinks:load', function() {
+    Modalist = new function(options) {
 
         var defaults = {
             iziModal: {}
@@ -33,25 +34,28 @@
         options = $.extend( defaults, options );
 
         this.modal = $('#modalist');
-        this.iziModal = $(Modalist.modal).iziModal(options.iziModal);
+        // this.iziModal = $(this.modal).iziModal(options.iziModal);
+        this.iziModal = $(this.modal).iziModal();
 
-        $('.modalist--trigger').unbind('click');
-        $('.modalist--trigger').click(function(event) {
+        $('.modalist--trigger').off('click');
+        $('.modalist--trigger').on( 'click', function(event) {
 
             event.preventDefault();
 
-            var event = jQuery.Event('modalist:click'),
+            var e = jQuery.Event('modalist:click'),
                 url = $(this).data('modalist-url') || $(this).attr('href'),
                 form = $(this).data('modalist-form') || false,
                 fullScreen = $(this).data('modalist-full-screen');
 
-            event.target = $(this);
-            event.data = { url: url };
-            $(document).trigger(event);
+            e.target = $(this);
+            e.data = { url: url };
+            $(document).trigger(e);
 
             Modalist.reset();
             Modalist.fullScreen(fullScreen);
-            Modalist.load( url, form );
+            Modalist.load( url, {
+                form: form
+            });
 
         });
 
@@ -66,7 +70,9 @@
 
             Modalist.reset();
             Modalist.fullScreen(options.fullScreen);
-            Modalist.load( options.url, options.form );
+            Modalist.load( options.url, {
+                form: options.form
+            });
 
         };
 
@@ -102,7 +108,7 @@
             if (options.form) {
                 $.ajax({
                     url: $(options.form).attr('action'),
-                    type: 'GET',
+                    type: $(options.form).attr('method'),
                     data : $(options.form).serialize(),
                     success: function(data) {
                         $(document).trigger('modalist:request-end');
@@ -134,4 +140,4 @@
         };
 
     };
-})(jQuery);
+});

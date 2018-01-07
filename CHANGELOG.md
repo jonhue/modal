@@ -4,6 +4,12 @@
 
 * nothing yet
 
+### 1.0.3 - 2018/01/07
+
+* bugfixes
+    * fixed assets included with gem
+    * updated Modalist.js to 1.0.3
+
 ### 1.0.2 - 2018/01/06
 
 * bugfixes
