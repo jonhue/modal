@@ -82,7 +82,7 @@ Specify where modals should be located in your view:
 
 ### Controllers
 
-Modallist simulates Rails' MVC structure. To add a new modal to your app you have to create a new controller action, route and view:
+Modallist simulates Rails' MVC structure. To add a new modal to your app, you have to create a new controller action, route and view:
 
 ```ruby
 class SettingsController < ApplicationController
