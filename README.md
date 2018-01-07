@@ -23,6 +23,7 @@ Modalist does not reinvent the wheel and uses todays best modal-engine [iziModal
 * [To Do](#to-do)
 * [Contributing](#contributing)
     * [Contributors](#contributors)
+    * [Semantic versioning](#semantic-versioning)
 * [License](#license)
 
 ---
@@ -82,7 +83,7 @@ Specify where modals should be located in your view:
 
 ### Controllers
 
-Modallist simulates Rails' MVC structure. To add a new modal to your app you have to create a new controller action, route and view:
+Modallist simulates Rails' MVC structure. To add a new modal to your app, you have to create a new controller action, route and view:
 
 ```ruby
 class SettingsController < ApplicationController
@@ -91,7 +92,7 @@ class SettingsController < ApplicationController
         # a regular controller action
     end
 
-    def modalist
+    def modal
         modalist
         # a modalist controller action
     end
@@ -104,7 +105,7 @@ Rails.application.routes.draw do
 
     get 'settings', to: 'settings#index'
     scope :settings, as: :settings do
-        get 'modalist', to: 'settings#modalist'
+        get 'modal', to: 'settings#modal'
     end
 
 end
@@ -113,7 +114,7 @@ end
 In most cases you only want to allow AJAX requests to be able to reach your modal-controller-actions:
 
 ```ruby
-get 'modalist', to: 'settings#modalist', constraints: Modalist::Ajax.new
+get 'modal', to: 'settings#modal', constraints: Modalist::Ajax.new
 ```
 
 ### Views
@@ -146,12 +147,12 @@ To customize the styles of your modals, require the vendored default styles and 
 It is often useful to be able to provide view-specific styles. Modalist therefore adds classes for controller and action to the `.modalist--content` element which wraps your modals content. Here is how you can utilize it:
 
 ```css
-/* settings#modalist */
-.modalist--content.settings.modalist {
+/* settings#modal */
+.modalist--content.settings.modal {
     /* ... */
 }
-/* nested/settings#modalist */
-.modalist--content.nested.settings.modalist {
+/* nested/settings#modal */
+.modalist--content.nested.settings.modal {
     /* ... */
 }
 ```
@@ -181,6 +182,10 @@ We hope that you will consider contributing to Modalist. Please read this short 
 Give the people some :heart: who are working on this project. See them all at:
 
 https://github.com/jonhue/modalist/graphs/contributors
+
+### Semantic Versioning
+
+Modalist follows Semantic Versioning 2.0 as defined at http://semver.org.
 
 ## License
 
