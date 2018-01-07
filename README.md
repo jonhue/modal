@@ -91,7 +91,7 @@ class SettingsController < ApplicationController
         # a regular controller action
     end
 
-    def modalist
+    def modal
         modalist
         # a modalist controller action
     end
@@ -104,7 +104,7 @@ Rails.application.routes.draw do
 
     get 'settings', to: 'settings#index'
     scope :settings, as: :settings do
-        get 'modalist', to: 'settings#modalist'
+        get 'modal', to: 'settings#modal'
     end
 
 end
@@ -113,7 +113,7 @@ end
 In most cases you only want to allow AJAX requests to be able to reach your modal-controller-actions:
 
 ```ruby
-get 'modalist', to: 'settings#modalist', constraints: Modalist::Ajax.new
+get 'modal', to: 'settings#modal', constraints: Modalist::Ajax.new
 ```
 
 ### Views
@@ -146,12 +146,12 @@ To customize the styles of your modals, require the vendored default styles and 
 It is often useful to be able to provide view-specific styles. Modalist therefore adds classes for controller and action to the `.modalist--content` element which wraps your modals content. Here is how you can utilize it:
 
 ```css
-/* settings#modalist */
-.modalist--content.settings.modalist {
+/* settings#modal */
+.modalist--content.settings.modal {
     /* ... */
 }
-/* nested/settings#modalist */
-.modalist--content.nested.settings.modalist {
+/* nested/settings#modal */
+.modalist--content.nested.settings.modal {
     /* ... */
 }
 ```
