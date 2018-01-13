@@ -159,7 +159,7 @@ It is often useful to be able to provide view-specific styles. Modalist therefor
 
 ### Modalist.js
 
-Continue reading [here](https://github.com/jonhue/modalist.js) to learn how to use modalist.js to open modals and fetch their content vie AJAX.
+Continue reading [here](https://github.com/jonhue/modalist.js#trigger-a-modal) to learn how to use modalist.js to open modals and fetch their content vie AJAX.
 
 ---
 
