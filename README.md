@@ -73,15 +73,15 @@ Specify where modals should be located in your view:
 !!!
 %html
     %head
-        -# ...
+        ...
     %body
-        = component 'modalist'
+        = component 'modalist/wrapper'
         = yield
 ```
 
 ### Controllers
 
-Modallist simulates Rails' MVC structure. To add a new modal to your app, you have to create a new controller action, route and view:
+Modalist simulates Rails' MVC structure. To add a new modal to your app, you have to create a new controller action, route and view:
 
 ```ruby
 class SettingsController < ApplicationController
@@ -117,26 +117,20 @@ get 'modal', to: 'settings#modal', constraints: Modalist::Ajax.new
 
 ### Views
 
-In your Modalist views are a couple of helper methods available:
+In your Modalist view you are able to use the `'modalist'` component to customize the modal:
 
-**`modalist_title(title)`:** This will specify a title for your modal. If you omit this in your view, your modal will not have a header. Takes a string.
-
-**`modalist_subtitle(subtitle)`:** Add a subtitle to your modal header. Takes a string.
-
-**`modalist_actions(&block)`:** Specify actions (preferably icons wrapped in links) which will be displayed on the right side of your modal header. Takes a block.
-
-**`modalist_closer`:** Renders a default modal close action. Can be passed to `modalist_actions`.
-
-#### Example
+* `title` This will specify a title for your modal. If you omit this, your modal will not have a header. Takes a string.
+* `subtitle` Add a subtitle to your modal header. Takes a string.
+* `&block` Specify actions (preferably icons wrapped in links) which will be displayed on the right side of your modal header.
 
 ```haml
-- modalist_title 'Modal'
-- modalist_subtitle 'Subtitle'
-- modalist_actions do
+= component 'modalist', title: 'Modal', subtitle: 'Subtitle' do
     = component 'modalist/closer'
 
 Content ...
 ```
+
+**Note:** The `'modalist/closer'` component renders a default modal close action.
 
 ### Styles
 

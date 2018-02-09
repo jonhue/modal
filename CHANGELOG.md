@@ -4,7 +4,12 @@
 
 * nothing yet
 
-### 2.0.p - 2018/02/09
+### 2.1.0 - 2018/02/09
+
+* enhancements
+    * improved modalist view helpers
+
+### 2.0.0 - 2018/02/09
 
 * features
     * updated Modalist.js to 2.0.0

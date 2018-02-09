@@ -6,6 +6,7 @@ module Modalist
         initializer 'modalist.mozaic' do
             Mozaic.configure do |config|
                 config.define_component 'modalist'
+                config.define_component 'modalist/wrapper'
                 config.define_component 'modalist/closer'
             end
         end

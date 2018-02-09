@@ -1,5 +1,10 @@
 # Deprecations
 
+### 2.1.0 - 2018/02/09
+
+* replaced `modalist_title`, `modalist_subtitle` and `modalist_actions` view helpers with `'modalist'` component
+* renamed `'modalist'` component to `'modalist/wrapper'`
+
 ### 2.0.0 - 2018/02/09
 
 * replaced `render_modalist` view helper method with `'modalist'` component
