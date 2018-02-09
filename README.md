@@ -125,7 +125,7 @@ In your Modalist views are a couple of helper methods available:
 
 **`modalist_actions(&block)`:** Specify actions (preferably icons wrapped in links) which will be displayed on the right side of your modal header. Takes a block.
 
-**`modalist_closer`:** Renders a default modal close action. Can be passed to `modalist_actions`.
+**`component 'modalist/closer'`:** Renders a default modal close action. Can be passed to `modalist_actions`.
 
 #### Example
 
