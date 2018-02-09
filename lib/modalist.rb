@@ -1,3 +1,4 @@
+require 'mozaic'
 require 'modalist/version'
 
 module Modalist

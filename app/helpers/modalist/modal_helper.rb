@@ -1,14 +1,6 @@
 module Modalist
     module ModalHelper
 
-        def render_modalist
-            render partial: 'modalist/modal'
-        end
-
-        def modalist_close
-            render partial: 'modalist/close'
-        end
-
         def modalist_title title
             area :modalist_title, title
         end

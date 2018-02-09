@@ -1,5 +1,5 @@
 <% if area(:modalist_title).length > 0 %>
-<div class="modalist--header">
+<div class="modalist--content-header">
     <div class="wrapper">
         <h4><%= area :modalist_title %></h4>
         <% if area(:modalist_subtitle).length > 0 %>
@@ -14,6 +14,6 @@
 </div>
 <% end %>
 
-<div class="modalist--content <%= modalist_class_hierarchy [params[:controller].split('/').each { |n| n }, action_name] %>">
+<div class="modalist--content-body <%= modalist_class_hierarchy [params[:controller].split('/').each { |n| n }, action_name] %>">
     <%= yield %>
 </div>

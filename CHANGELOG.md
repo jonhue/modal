@@ -4,6 +4,11 @@
 
 * nothing yet
 
+### 2.0.p - 2018/02/09
+
+* features
+    * updated Modalist.js to 2.0.0
+
 ### 1.0.3 - 2018/01/07
 
 * bugfixes
