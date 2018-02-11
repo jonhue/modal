@@ -5,7 +5,7 @@ Gem::Specification.new do |gem|
     gem.name                  = 'modalist'
     gem.version               = Modalist::VERSION
     gem.platform              = Gem::Platform::RUBY
-    gem.summary               = 'A powerful & (really) lightweight AJAX modal plugin'
+    gem.summary               = 'A powerful & (really) lightweight ajaxified modal solution for Rails apps'
     gem.description           = 'Modalist is a powerful & lightweight (not necessarily but primarily ajaxified) modal plugin.'
     gem.authors               = ['Jonas Hübotter']
     gem.email                 = ['me@jonhue.me']
