@@ -76,6 +76,7 @@ Specify where modals should be located in your view:
     %head
         ...
     %body
+        = component 'modalist/overlay'
         = component 'modalist/wrapper'
         = yield
 ```
@@ -153,7 +154,7 @@ It is often useful to be able to provide view-specific styles. Modalist therefor
 You can also setup synchronous modals wherever you like:
 
 ```haml
-= component 'modalist/wrapper', class: 'signup' do
+= component 'modalist/wrapper', id: 'signup' do
     %h1 Signup
     ...
 ```

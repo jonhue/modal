@@ -4,6 +4,13 @@
 
 * nothing yet
 
+### 2.3.0 - 2018/02/11
+
+* features
+    * add `modalist/overlay` component
+* enhancements
+    * add `id` option to `modalist/wrapper` component
+
 ### 2.2.0 - 2018/02/11
 
 * features
