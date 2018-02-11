@@ -4,6 +4,11 @@
 
 * nothing yet
 
+### 2.2.0 - 2018/02/11
+
+* features
+    * added support for synchronous modals
+
 ### 2.1.0 - 2018/02/09
 
 * enhancements

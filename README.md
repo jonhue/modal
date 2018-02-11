@@ -20,6 +20,7 @@ Learn more about **[Modalist.js](https://github.com/jonhue/modalist.js)**.
     * [Controllers](#controllers)
     * [Views](#views)
     * [Styles](#styles)
+    * [Synchronous modals](#synchronous-modals)
     * [Modalist.js](#modalistjs)
 * [To Do](#to-do)
 * [Contributing](#contributing)
@@ -146,6 +147,18 @@ It is often useful to be able to provide view-specific styles. Modalist therefor
     /* ... */
 }
 ```
+
+### Synchronous modals
+
+You can also setup synchronous modals wherever you like:
+
+```haml
+= component 'modalist/wrapper', class: 'signup' do
+    %h1 Signup
+    ...
+```
+
+[Learn more](https://github.com/jonhue/modalist.js#synchronous) about handling synchronous modals with Modalist.js.
 
 ### Modalist.js
 
