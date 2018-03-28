@@ -9,6 +9,11 @@
 * bugfixes
     * remove loader of `modalist/wrapper` component
 
+### 2.3.2 - 2018/03/28
+
+* enhancements
+    * allow custom loaders to be passed as a block to the `modalist/overlay` component
+
 ### 2.3.0 - 2018/02/11
 
 * features
