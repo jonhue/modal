@@ -7,7 +7,7 @@
 ### 2.3.2 - 2018/03/28
 
 * enhancements
-* allow custom loaders to be passed as a block to the `modalist/overlay` component
+    * allow custom loaders to be passed as a block to the `modalist/overlay` component
 
 ### 2.3.1 - 2018/03/06
 
