@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    modalist (2.3.2)
+    modalist (2.3.3)
       actionpack (~> 5.2)
       mozaic (~> 2.0)
       railties (~> 5.2)
