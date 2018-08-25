@@ -16,7 +16,7 @@ Gem::Specification.new do |gem|
                               'plugin.'
   gem.authors               = ['Jonas Hübotter']
   gem.email                 = ['me@jonhue.me']
-  gem.homepage              = 'https://github.com/jonhue/modalist-ruby'
+  gem.homepage              = 'https://github.com/jonhue/modalist-rails'
   gem.license               = 'MIT'
 
   gem.files                 = Dir['README.md', 'LICENSE', 'lib/**/*',
