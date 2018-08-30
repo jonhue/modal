@@ -14,6 +14,6 @@
 </div>
 <% end %>
 
-<div class="modalist--content-body <%= modalist_class_hierarchy [params[:controller].split('/').each { |n| n }, action_name] %>">
+<div class="modalist--content-body <%= modalist_class_hierarchy([params[:controller].split('/'), action_name]) %>">
   <%= yield %>
 </div>

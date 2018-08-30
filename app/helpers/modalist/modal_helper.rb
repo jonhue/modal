@@ -3,7 +3,7 @@
 module Modalist
   module ModalHelper
     def modalist_class_hierarchy(options = [], delimiter = ' ')
-      options.map(&:inspect).join(delimiter).delete('",[]', '')
+      options.join(delimiter)
     end
   end
 end
