@@ -1,15 +1,15 @@
-# Modalist
+# Modalist on Rails
 
-[![Gem Version](https://badge.fury.io/rb/modalist.svg)](https://badge.fury.io/rb/modalist) <img src="https://travis-ci.org/jonhue/modalist.svg?branch=master" />
+[![Gem Version](https://badge.fury.io/rb/modalist.svg)](https://badge.fury.io/rb/modalist) ![Travis](https://travis-ci.org/jonhue/modalist-rails.svg?branch=master)
 
-Modalist is a powerful & lightweight (not necessarily but primarily ajaxified) modal plugin. Here is how it works:
+Modalist is a powerful & lightweight (asynchronous) modal plugin. Here is how it works:
 
 1) You create a distinct Modalist object for every modal style.
 2) You trigger a modal from your frontend code passing custom parameters
 3) Modalist fetches the modal contents with AJAX while showing a loader (skippable if not desired)
 4) The modal opens
 
-Learn more about **[Modalist.js](https://github.com/jonhue/modalist.js)**.
+Learn more about **[Modalist JS](https://github.com/jonhue/modalist)**.
 
 ---
 
@@ -17,16 +17,15 @@ Learn more about **[Modalist.js](https://github.com/jonhue/modalist.js)**.
 
 * [Installation](#installation)
 * [Usage](#usage)
-    * [Controllers](#controllers)
-    * [Views](#views)
-    * [Styles](#styles)
-    * [Synchronous modals](#synchronous-modals)
-    * [Modalist.js](#modalistjs)
+  * [Controllers](#controllers)
+  * [Views](#views)
+  * [Styles](#styles)
+  * [Synchronous modals](#synchronous-modals)
+  * [Modalist JS](#modalist-js)
+* [Testing](#testing)
 * [To Do](#to-do)
 * [Contributing](#contributing)
-    * [Contributors](#contributors)
-    * [Semantic versioning](#semantic-versioning)
-* [License](#license)
+  * [Semantic versioning](#semantic-versioning)
 
 ---
 
@@ -49,7 +48,7 @@ Or install it yourself as:
 If you always want to be up to date fetch the latest from GitHub in your `Gemfile`:
 
 ```ruby
-gem 'modalist', github: 'jonhue/modalist'
+gem 'modalist', github: 'jonhue/modalist-rails'
 ```
 
 ## Usage
@@ -62,10 +61,10 @@ Modalist.init();
 let modalist = new Modalist;
 ```
 
-```sass
-@import "animate.css"
-@import "modalist/src/modalist"
-@import "modalist/src/modalist-theme"
+```scss
+@import "animate.css";
+@import "modalist/src/modalist";
+@import "modalist/src/modalist-theme";
 ```
 
 Specify where modals should be located in your view:
@@ -73,12 +72,12 @@ Specify where modals should be located in your view:
 ```haml
 !!!
 %html
-    %head
-        ...
-    %body
-        = component 'modalist/overlay'
-        = component 'modalist/wrapper'
-        = yield
+  %head
+    ...
+  %body
+    = component 'modalist/overlay'
+    = component 'modalist/wrapper'
+    = yield
 ```
 
 ### Controllers
@@ -87,27 +86,23 @@ Modalist simulates Rails' MVC structure. To add a new modal to your app, you hav
 
 ```ruby
 class SettingsController < ApplicationController
+  def index
+    # a regular controller action
+  end
 
-    def index
-        # a regular controller action
-    end
-
-    def modal
-        modalist
-        # a modalist controller action
-    end
-
+  def modal
+    modalist
+    # a modalist controller action
+  end
 end
 ```
 
 ```ruby
 Rails.application.routes.draw do
-
-    get 'settings', to: 'settings#index'
-    scope :settings, as: :settings do
-        get 'modal', to: 'settings#modal'
-    end
-
+  get 'settings', to: 'settings#index'
+  scope :settings, as: :settings do
+    get 'modal', to: 'settings#modal'
+  end
 end
 ```
 
@@ -127,7 +122,7 @@ In your Modalist view you are able to use the `'modalist'` component to customiz
 
 ```haml
 = component 'modalist', title: 'Modal', subtitle: 'Subtitle' do
-    = component 'modalist/closer'
+  = component 'modalist/closer'
 
 Content ...
 ```
@@ -141,11 +136,11 @@ It is often useful to be able to provide view-specific styles. Modalist therefor
 ```css
 /* settings#modal */
 .modalist--content-body.settings.modal {
-    /* ... */
+  /* ... */
 }
 /* nested/settings#modal */
 .modalist--content-body.nested.settings.modal {
-    /* ... */
+  /* ... */
 }
 ```
 
@@ -155,23 +150,41 @@ You can also setup synchronous modals wherever you like:
 
 ```haml
 = component 'modalist/wrapper', id: 'signup' do
-    %h1 Signup
-    ...
+  %h1 Signup
+  ...
 ```
 
-[Learn more](https://github.com/jonhue/modalist.js#synchronous) about handling synchronous modals with Modalist.js.
+[Learn more](https://github.com/jonhue/modalist#synchronous) about handling synchronous modals with Modalist.js.
 
-### Modalist.js
+### Modalist JS
 
-Continue reading [here](https://github.com/jonhue/modalist.js) to learn how to use Modalist.js to open modals and fetch content via AJAX.
+Continue reading [here](https://github.com/jonhue/modalist) to learn how to use Modalist.js to open modals and fetch content asynchronously.
+
+---
+
+## Testing
+
+1. Fork this repository
+2. Clone your forked git locally
+3. Install dependencies
+
+    `$ bundle install`
+
+4. Run specs
+
+    `$ bundle exec rspec`
+
+5. Run RuboCop
+
+    `$ bundle exec rubocop`
 
 ---
 
 ## To Do
 
-[Here](https://github.com/jonhue/modalist/projects/1) is the full list of current projects.
+We use [GitHub projects](https://github.com/jonhue/modalist-rails/projects/1) to coordinate the work on this project.
 
-To propose your ideas, initiate the discussion by adding a [new issue](https://github.com/jonhue/modalist/issues/new).
+To propose your ideas, initiate the discussion by adding a [new issue](https://github.com/jonhue/modalist-rails/issues/new).
 
 ---
 
@@ -181,36 +194,6 @@ We hope that you will consider contributing to Modalist. Please read this short 
 
 [Learn more about contributing to this repository](CONTRIBUTING.md), [Code of Conduct](CODE_OF_CONDUCT.md)
 
-### Contributors
-
-Give the people some :heart: who are working on this project. See them all at:
-
-https://github.com/jonhue/modalist/graphs/contributors
-
 ### Semantic Versioning
 
 Modalist follows Semantic Versioning 2.0 as defined at http://semver.org.
-
-## License
-
-MIT License
-
-Copyright (c) 2017 Jonas Hübotter
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
