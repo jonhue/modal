@@ -25,9 +25,9 @@ Gem::Specification.new do |gem|
 
   gem.required_ruby_version = '>= 2.3'
 
-  gem.add_dependency 'actionpack', '~> 5.2'
+  gem.add_dependency 'actionpack', '~> 6.0'
   gem.add_dependency 'mozaic', '~> 2.0'
-  gem.add_dependency 'railties', '~> 5.2'
+  gem.add_dependency 'railties', '~> 6.0'
 
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'rubocop'
